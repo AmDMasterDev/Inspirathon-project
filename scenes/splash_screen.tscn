@@ -51,7 +51,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.7 ),
 "transitions": PoolRealArray( 0.7, 2.27357 ),
 "update": 0,
-"values": [ Vector2( 165, 520 ), Vector2( 165, 2101.05 ) ]
+"values": [ Vector2( 165, 600 ), Vector2( 165, 2500 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Control/login:rect_position")
@@ -63,7 +63,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0.1, 0.7 ),
 "transitions": PoolRealArray( 0.7, 1.5 ),
 "update": 0,
-"values": [ Vector2( 1300, 424 ), Vector2( 165, 424 ) ]
+"values": [ Vector2( 1300, 600 ), Vector2( 165, 600 ) ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath("Control/login")
@@ -121,9 +121,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -375.0
-margin_top = -440.0
+margin_top = -360.0
 margin_right = 375.0
-margin_bottom = 440.003
+margin_bottom = 520.001
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -213,9 +213,9 @@ anchor_top = 0.45
 anchor_right = 0.5
 anchor_bottom = 0.45
 margin_left = 760.0
-margin_top = -440.0
+margin_top = -264.0
 margin_right = 1510.0
-margin_bottom = 280.0
+margin_bottom = 456.0
 custom_styles/panel = SubResource( 3 )
 script = ExtResource( 15 )
 __meta__ = {
@@ -267,18 +267,18 @@ __meta__ = {
 }
 
 [node name="email" parent="UI/Control/login/initials_container" instance=ExtResource( 11 )]
-margin_right = 553.0
+margin_right = 552.0
 size_flags_horizontal = 1
 
 [node name="spacer" type="Control" parent="UI/Control/login/initials_container"]
 margin_top = 84.0
-margin_right = 553.0
+margin_right = 552.0
 margin_bottom = 110.0
 size_flags_vertical = 3
 
 [node name="password" parent="UI/Control/login/initials_container" instance=ExtResource( 11 )]
 margin_top = 114.0
-margin_right = 553.0
+margin_right = 552.0
 margin_bottom = 194.0
 size_flags_horizontal = 1
 secret = true
@@ -286,7 +286,7 @@ placeholder_text = "Password"
 
 [node name="spacer2" type="Control" parent="UI/Control/login/initials_container"]
 margin_top = 198.0
-margin_right = 553.0
+margin_right = 552.0
 margin_bottom = 225.0
 size_flags_vertical = 3
 
@@ -322,6 +322,7 @@ margin_top = -126.0
 margin_right = 223.0
 margin_bottom = 0.0
 texture_normal = ExtResource( 14 )
+button_action = "login"
 
 [node name="login_anim" type="AnimationPlayer" parent="UI"]
 anims/provider_anim = SubResource( 6 )

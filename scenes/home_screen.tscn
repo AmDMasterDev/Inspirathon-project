@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/ScrollContainer.gd" type="Script" id=1]
 
 [node name="home_screen" type="Control"]
 anchor_right = 1.0
@@ -6,3 +8,94 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1068.0
+margin_bottom = 4440.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_right = 1068.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect2" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 404.0
+margin_right = 1068.0
+margin_bottom = 804.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect3" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 808.0
+margin_right = 1068.0
+margin_bottom = 1208.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect4" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1212.0
+margin_right = 1068.0
+margin_bottom = 1612.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect5" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1616.0
+margin_right = 1068.0
+margin_bottom = 2016.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect6" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 2020.0
+margin_right = 1068.0
+margin_bottom = 2420.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect7" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 2424.0
+margin_right = 1068.0
+margin_bottom = 2824.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect8" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 2828.0
+margin_right = 1068.0
+margin_bottom = 3228.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect9" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 3232.0
+margin_right = 1068.0
+margin_bottom = 3632.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect10" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 3636.0
+margin_right = 1068.0
+margin_bottom = 4036.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+
+[node name="ColorRect11" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+margin_top = 4040.0
+margin_right = 1068.0
+margin_bottom = 4440.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
