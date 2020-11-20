@@ -3,6 +3,7 @@ extends HBoxContainer
 export (String) var person_name
 export (String) var location
 export (String) var start_up
+export (String) var number
 
 export (NodePath) var card_name
 export (NodePath) var card_location
@@ -29,3 +30,9 @@ func _on_like_pressed():
 	else:
 		me.texture_normal = preload("res://art/icon pack/png/002-like.png")
 		toggle = true
+
+
+func _on_contact_pressed():
+	Global.current_card["name"] = person_name
+	Global.current_card["phone_no"] = number
+	Global.show_details()

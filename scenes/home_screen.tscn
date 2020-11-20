@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scripts/ScrollContainer.gd" type="Script" id=1]
 [ext_resource path="res://art/icon pack/png/002-like.png" type="Texture" id=2]
@@ -8,10 +8,29 @@
 [ext_resource path="res://scenes/cards/HBoxContainer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/home_screen.gd" type="Script" id=7]
 [ext_resource path="res://fonts/Corbel/corbelb.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://art/icon pack/png/041-whatsapp.png" type="Texture" id=10]
+[ext_resource path="res://art/button art/trending.png" type="Texture" id=11]
+[ext_resource path="res://art/button art/trending filled.png" type="Texture" id=12]
+[ext_resource path="res://art/button art/whats new.png" type="Texture" id=13]
+[ext_resource path="res://art/button art/whats new filled.png" type="Texture" id=14]
+[ext_resource path="res://scripts/buttons.gd" type="Script" id=15]
 
-[sub_resource type="DynamicFont" id=7]
-size = 80
-font_data = ExtResource( 8 )
+[sub_resource type="DynamicFont" id=13]
+size = 70
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -43,6 +62,31 @@ VScrollBar/styles/grabber_pressed = SubResource( 3 )
 VScrollBar/styles/scroll = SubResource( 4 )
 VScrollBar/styles/scroll_focus = SubResource( 5 )
 
+[sub_resource type="Animation" id=8]
+resource_name = "details"
+length = 0.7
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.92549, 0.92549, 0.92549, 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 100
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 80
+outline_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 50
+outline_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 80
+font_data = ExtResource( 8 )
+
 [node name="home_screen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -61,33 +105,90 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="header" type="ColorRect" parent="."]
-anchor_right = 1.0
-margin_bottom = 150.0
-rect_min_size = Vector2( 1080, 150 )
-color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+[node name="explore" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.079
+anchor_right = 0.5
+anchor_bottom = 0.079
+margin_left = -532.0
+margin_top = 3.31999
+margin_right = 532.0
+margin_bottom = 131.32
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+text = "Waiting for you to Explore"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="header_text" type="Label" parent="header"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 60.0
-margin_top = 20.0
-margin_bottom = 2.0
-custom_fonts/font = SubResource( 7 )
-text = "COLT"
-valign = 1
+[node name="search" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 0.079
+anchor_right = 0.5
+anchor_bottom = 0.079
+margin_left = -452.0
+margin_top = 136.32
+margin_right = 452.0
+margin_bottom = 248.32
+custom_styles/normal = SubResource( 14 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+align = 1
+placeholder_text = "Search..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="buttons" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.254
+anchor_right = 0.5
+anchor_bottom = 0.275
+margin_left = -452.0
+margin_top = -63.68
+margin_right = 452.0
+margin_bottom = -24.0
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="whats_new_button" type="TextureButton" parent="buttons"]
+margin_right = 450.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+toggle_mode = true
+pressed = true
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+texture_focused = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+
+[node name="trending_button" type="TextureButton" parent="buttons"]
+margin_left = 454.0
+margin_right = 904.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+toggle_mode = true
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_focused = ExtResource( 12 )
+expand = true
+stretch_mode = 5
+
+[node name="Tween" type="Tween" parent="buttons"]
 
 [node name="whats_new" type="ScrollContainer" parent="."]
 anchor_top = 0.271
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -0.320068
+margin_right = 0.000976563
 margin_bottom = -128.0
 theme = SubResource( 6 )
 scroll_horizontal_enabled = false
@@ -98,60 +199,61 @@ __meta__ = {
 
 [node name="scroller" type="VBoxContainer" parent="whats_new"]
 margin_right = 1080.0
-margin_bottom = 1770.0
+margin_bottom = 1666.0
 mouse_filter = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Control" type="Control" parent="whats_new/scroller"]
-margin_right = 1080.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 0, 100 )
-
 [node name="HBoxContainer" parent="whats_new/scroller" instance=ExtResource( 6 )]
-margin_top = 104.0
 margin_right = 1080.0
-margin_bottom = 434.0
 person_name = "Amos Dsouza"
 location = "Goa, India"
 start_up = "Self-taught game developer."
+number = "+91 8501415810"
 
 [node name="HBoxContainer2" parent="whats_new/scroller" instance=ExtResource( 6 )]
-margin_top = 438.0
+margin_top = 334.0
 margin_right = 1080.0
-margin_bottom = 768.0
+margin_bottom = 664.0
 person_name = "James Smith"
 location = "India"
 start_up = "Software developer"
+number = "+91 9494306848"
 
 [node name="HBoxContainer3" parent="whats_new/scroller" instance=ExtResource( 6 )]
-margin_top = 772.0
+margin_top = 668.0
 margin_right = 1080.0
-margin_bottom = 1102.0
+margin_bottom = 998.0
 person_name = "David Brown"
 location = "India"
 start_up = "Full Stack Web Developer"
+number = "+91 5594866949"
 
 [node name="HBoxContainer4" parent="whats_new/scroller" instance=ExtResource( 6 )]
-margin_top = 1106.0
+margin_top = 1002.0
 margin_right = 1080.0
-margin_bottom = 1436.0
-person_name = "Maria Garcia:"
+margin_bottom = 1332.0
+person_name = "Maria Garcia"
 location = "India"
 start_up = "Food start up, Call us now!"
+number = "+91 9858863338"
 
 [node name="HBoxContainer5" parent="whats_new/scroller" instance=ExtResource( 6 )]
-margin_top = 1440.0
+margin_top = 1336.0
 margin_right = 1080.0
-margin_bottom = 1770.0
+margin_bottom = 1666.0
+person_name = "John Doe"
+location = "Karnataka, India"
+start_up = "Teach coding for absolute beginners so yeah"
+number = "+91 3427348392"
 
 [node name="trending" type="ScrollContainer" parent="."]
 anchor_top = 0.271
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1144.0
+margin_left = 1200.0
 margin_top = -0.320068
-margin_right = 1144.0
+margin_right = 1200.0
 margin_bottom = -128.0
 theme = SubResource( 6 )
 scroll_horizontal_enabled = false
@@ -162,40 +264,37 @@ __meta__ = {
 
 [node name="scroller" type="VBoxContainer" parent="trending"]
 margin_right = 1080.0
-margin_bottom = 1770.0
+margin_bottom = 1666.0
 mouse_filter = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="Control" type="Control" parent="trending/scroller"]
-margin_right = 1080.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 0, 100 )
-
 [node name="HBoxContainer" parent="trending/scroller" instance=ExtResource( 6 )]
-margin_top = 104.0
 margin_right = 1080.0
-margin_bottom = 434.0
+person_name = "Seth Williams"
+location = "USA"
+start_up = "Competitive Coder"
+number = "(555) 555-1234"
 
 [node name="HBoxContainer2" parent="trending/scroller" instance=ExtResource( 6 )]
-margin_top = 438.0
+margin_top = 334.0
 margin_right = 1080.0
-margin_bottom = 768.0
+margin_bottom = 664.0
 
 [node name="HBoxContainer3" parent="trending/scroller" instance=ExtResource( 6 )]
-margin_top = 772.0
+margin_top = 668.0
 margin_right = 1080.0
-margin_bottom = 1102.0
+margin_bottom = 998.0
 
 [node name="HBoxContainer4" parent="trending/scroller" instance=ExtResource( 6 )]
-margin_top = 1106.0
+margin_top = 1002.0
 margin_right = 1080.0
-margin_bottom = 1436.0
+margin_bottom = 1332.0
 
 [node name="HBoxContainer5" parent="trending/scroller" instance=ExtResource( 6 )]
-margin_top = 1440.0
+margin_top = 1336.0
 margin_right = 1080.0
-margin_bottom = 1770.0
+margin_bottom = 1666.0
 
 [node name="header_bg" type="ColorRect" parent="."]
 anchor_left = 0.5
@@ -211,6 +310,142 @@ color = Color( 0.972549, 0.972549, 0.972549, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="home_anim" type="AnimationPlayer" parent="."]
+anims/details = SubResource( 8 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="details" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1740.0
+margin_top = -960.0
+margin_right = -660.0
+margin_bottom = 821.0
+custom_styles/panel = SubResource( 12 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="details"]
+anchor_top = 0.108
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_right = -100.0
+margin_bottom = -100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spacer" type="Control" parent="details/VBoxContainer"]
+margin_right = 880.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="details/VBoxContainer"]
+margin_top = 54.0
+margin_right = 880.0
+margin_bottom = 304.0
+
+[node name="spacer" type="Control" parent="details/VBoxContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="TextureButton" type="TextureRect" parent="details/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0.921569 )
+margin_left = 104.0
+margin_right = 404.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 300, 250 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="spacer2" type="Control" parent="details/VBoxContainer/HBoxContainer"]
+margin_left = 408.0
+margin_right = 428.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="name" type="Label" parent="details/VBoxContainer/HBoxContainer"]
+margin_left = 432.0
+margin_right = 880.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 9 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_constants/line_spacing = -35
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spacer2" type="Control" parent="details/VBoxContainer"]
+margin_top = 308.0
+margin_right = 880.0
+margin_bottom = 358.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="about_me" type="Label" parent="details/VBoxContainer"]
+margin_top = 361.0
+margin_right = 880.0
+margin_bottom = 481.0
+rect_min_size = Vector2( 0, 120 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "About Me"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="about_me_info" type="Label" parent="details/VBoxContainer"]
+margin_top = 485.0
+margin_right = 880.0
+margin_bottom = 1235.0
+rect_min_size = Vector2( 0, 750 )
+custom_fonts/font = SubResource( 11 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a lacus risus. Praesent ut dignissim justo, quis posuere velit. Pellentesque iaculis sit amet urna et lacinia. Suspendisse nec commodo quam. Vivamus cursus urna vel leo consequat imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam vel nibh quis sem convallis pulvinar."
+autowrap = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="details/VBoxContainer"]
+margin_top = 1240.0
+margin_right = 880.0
+margin_bottom = 1390.0
+
+[node name="TextureRect" type="TextureRect" parent="details/VBoxContainer/HBoxContainer2"]
+margin_right = 170.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 170, 150 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="spacer" type="Control" parent="details/VBoxContainer/HBoxContainer2"]
+margin_left = 174.0
+margin_right = 224.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="phone_number" type="Label" parent="details/VBoxContainer/HBoxContainer2"]
+margin_left = 228.0
+margin_top = 14.0
+margin_right = 228.0
+margin_bottom = 134.0
+rect_min_size = Vector2( 0, 120 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+valign = 1
+uppercase = true
 
 [node name="bottom_header" type="HBoxContainer" parent="."]
 anchor_top = 1.0
@@ -259,3 +494,28 @@ size_flags_horizontal = 3
 margin_left = 824.0
 margin_right = 904.0
 texture_normal = ExtResource( 3 )
+
+[node name="header" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 1080, 150 )
+mouse_filter = 2
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="header_text" type="Label" parent="header"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 60.0
+margin_top = 20.0
+margin_bottom = 2.0
+custom_fonts/font = SubResource( 7 )
+text = "COLT"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="toggled" from="buttons/whats_new_button" to="buttons" method="_on_whats_new_button_toggled"]
+[connection signal="toggled" from="buttons/trending_button" to="buttons" method="_on_trending_button_toggled"]
