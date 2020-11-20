@@ -13,4 +13,5 @@ func _on_login_button_pressed():
 			print('Button clicked user')
 			Global.user_login()
 		"login":
+			Global.current_page = "home_screen"
 			get_tree().change_scene("res://scenes/home_screen.tscn")

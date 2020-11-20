@@ -19,8 +19,13 @@ func _on_Back_pressed():
 			get_tree().quit()
 		"provider_login":
 			animation.play_backwards('provider_anim')
+			current_page = "entry_point"
 		"user_login":
-			animation.play_backwards('provider_anim')
+			animation.play_backwards('user_anim')
+			current_page = "entry_point"
+		"home_screen":
+			get_tree().quit()
+
 
 func provider_login():
 	current_page = "provider_login"
@@ -28,4 +33,4 @@ func provider_login():
 
 func user_login():
 	current_page = "user_login"
-	animation.play('provider_anim')
+	animation.play('user_anim')
