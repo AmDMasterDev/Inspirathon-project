@@ -7,4 +7,12 @@ func _ready() -> void:
 
 
 func _on_home_screen_button_pressed():
-	print(button_name)
+	match(button_name):
+		"home":
+			Global.set_header_text("COLT")
+		"active_listing":
+			Global.set_header_text("Listing Around You")
+		"liked_listing":
+			Global.set_header_text("Liked Listings")
+		"profile":
+			Global.set_header_text("Profile")

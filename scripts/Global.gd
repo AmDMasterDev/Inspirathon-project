@@ -3,6 +3,7 @@ extends Node2D
 var animation
 
 var current_page = "entry_point"
+var header
 
 func _ready():
 	get_tree().set_quit_on_go_back(false)
@@ -34,3 +35,7 @@ func provider_login():
 func user_login():
 	current_page = "user_login"
 	animation.play('user_anim')
+
+func set_header_text(page : String):
+	header.text = page
+	pass

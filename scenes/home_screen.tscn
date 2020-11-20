@@ -1,10 +1,17 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/ScrollContainer.gd" type="Script" id=1]
 [ext_resource path="res://art/icon pack/png/002-like.png" type="Texture" id=2]
 [ext_resource path="res://art/icon pack/png/010-user.png" type="Texture" id=3]
 [ext_resource path="res://art/icon pack/png/018-location pin.png" type="Texture" id=4]
 [ext_resource path="res://scenes/buttons/home_screen_button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/cards/HBoxContainer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/home_screen.gd" type="Script" id=7]
+[ext_resource path="res://fonts/Corbel/corbelb.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=7]
+size = 80
+font_data = ExtResource( 8 )
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -39,6 +46,7 @@ VScrollBar/styles/scroll_focus = SubResource( 5 )
 [node name="home_screen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -53,109 +61,141 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="header" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 1080, 150 )
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="header_text" type="Label" parent="header"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 60.0
+margin_top = 20.0
+margin_bottom = 2.0
+custom_fonts/font = SubResource( 7 )
+text = "COLT"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="whats_new" type="ScrollContainer" parent="."]
+anchor_top = 0.271
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.320068
 margin_bottom = -128.0
 theme = SubResource( 6 )
+scroll_horizontal_enabled = false
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="scroller" type="VBoxContainer" parent="whats_new"]
 margin_right = 1080.0
-margin_bottom = 4440.0
+margin_bottom = 1770.0
 mouse_filter = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="whats_new/scroller"]
 margin_right = 1080.0
-margin_bottom = 400.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.952941, 0.482353, 0.482353, 1 )
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
 
-[node name="ColorRect2" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 404.0
+[node name="HBoxContainer" parent="whats_new/scroller" instance=ExtResource( 6 )]
+margin_top = 104.0
 margin_right = 1080.0
-margin_bottom = 804.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.384314, 0.607843, 1, 1 )
+margin_bottom = 434.0
+person_name = "Amos Dsouza"
+location = "Goa, India"
+start_up = "Self-taught game developer."
 
-[node name="ColorRect3" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 808.0
+[node name="HBoxContainer2" parent="whats_new/scroller" instance=ExtResource( 6 )]
+margin_top = 438.0
 margin_right = 1080.0
-margin_bottom = 1208.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.952941, 0.482353, 0.482353, 1 )
+margin_bottom = 768.0
+person_name = "James Smith"
+location = "India"
+start_up = "Software developer"
 
-[node name="ColorRect4" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1212.0
+[node name="HBoxContainer3" parent="whats_new/scroller" instance=ExtResource( 6 )]
+margin_top = 772.0
 margin_right = 1080.0
-margin_bottom = 1612.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.384314, 0.607843, 1, 1 )
+margin_bottom = 1102.0
+person_name = "David Brown"
+location = "India"
+start_up = "Full Stack Web Developer"
 
-[node name="ColorRect5" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1616.0
+[node name="HBoxContainer4" parent="whats_new/scroller" instance=ExtResource( 6 )]
+margin_top = 1106.0
 margin_right = 1080.0
-margin_bottom = 2016.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.952941, 0.482353, 0.482353, 1 )
+margin_bottom = 1436.0
+person_name = "Maria Garcia:"
+location = "India"
+start_up = "Food start up, Call us now!"
 
-[node name="ColorRect6" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 2020.0
+[node name="HBoxContainer5" parent="whats_new/scroller" instance=ExtResource( 6 )]
+margin_top = 1440.0
 margin_right = 1080.0
-margin_bottom = 2420.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.384314, 0.607843, 1, 1 )
+margin_bottom = 1770.0
 
-[node name="ColorRect7" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 2424.0
-margin_right = 1080.0
-margin_bottom = 2824.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.952941, 0.482353, 0.482353, 1 )
+[node name="trending" type="ScrollContainer" parent="."]
+anchor_top = 0.271
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1144.0
+margin_top = -0.320068
+margin_right = 1144.0
+margin_bottom = -128.0
+theme = SubResource( 6 )
+scroll_horizontal_enabled = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ColorRect8" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 2828.0
+[node name="scroller" type="VBoxContainer" parent="trending"]
 margin_right = 1080.0
-margin_bottom = 3228.0
-rect_min_size = Vector2( 0, 400 )
+margin_bottom = 1770.0
+mouse_filter = 2
 size_flags_horizontal = 3
-color = Color( 0.384314, 0.607843, 1, 1 )
+alignment = 1
 
-[node name="ColorRect9" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 3232.0
+[node name="Control" type="Control" parent="trending/scroller"]
 margin_right = 1080.0
-margin_bottom = 3632.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.952941, 0.482353, 0.482353, 1 )
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 100 )
 
-[node name="ColorRect10" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 3636.0
+[node name="HBoxContainer" parent="trending/scroller" instance=ExtResource( 6 )]
+margin_top = 104.0
 margin_right = 1080.0
-margin_bottom = 4036.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.384314, 0.607843, 1, 1 )
+margin_bottom = 434.0
 
-[node name="ColorRect11" type="ColorRect" parent="ScrollContainer/VBoxContainer"]
-margin_top = 4040.0
+[node name="HBoxContainer2" parent="trending/scroller" instance=ExtResource( 6 )]
+margin_top = 438.0
 margin_right = 1080.0
-margin_bottom = 4440.0
-rect_min_size = Vector2( 0, 400 )
-size_flags_horizontal = 3
-color = Color( 0.952941, 0.482353, 0.482353, 1 )
+margin_bottom = 768.0
+
+[node name="HBoxContainer3" parent="trending/scroller" instance=ExtResource( 6 )]
+margin_top = 772.0
+margin_right = 1080.0
+margin_bottom = 1102.0
+
+[node name="HBoxContainer4" parent="trending/scroller" instance=ExtResource( 6 )]
+margin_top = 1106.0
+margin_right = 1080.0
+margin_bottom = 1436.0
+
+[node name="HBoxContainer5" parent="trending/scroller" instance=ExtResource( 6 )]
+margin_top = 1440.0
+margin_right = 1080.0
+margin_bottom = 1770.0
 
 [node name="header_bg" type="ColorRect" parent="."]
 anchor_left = 0.5
