@@ -9,6 +9,7 @@ export (NodePath) var card_name
 export (NodePath) var card_location
 export (NodePath) var card_start_up
 
+var pressed = false
 
 func _ready():
 	card_name = get_node(card_name)
@@ -18,21 +19,45 @@ func _ready():
 	card_name.text = person_name
 	card_location.text = location
 	card_start_up.text = start_up
+	
+	if pressed:
+		$VBoxContainer/Panel/card_info/contact_box/like.texture_normal = preload("res://art/icon pack/png/051-filled-like.png")
+		toggle = false
 
 
-var toggle = true
+export var toggle = true
 func _on_like_pressed():
 	var me = $VBoxContainer/Panel/card_info/contact_box/like
 	if toggle:
 		me.texture_normal = preload("res://art/icon pack/png/051-filled-like.png")
-		print("Card Name: ", person_name)
+		Global.current_card["name"] = person_name
+		Global.current_card["phone_no"] = number
+		Global.liked_main[person_name] = get_path()
+		
+		Global.liked[person_name] = {
+			"name" : person_name,
+			"location" : location,
+			"start_up" : start_up
+		}
+		
+		Global.add_liked_listing()
 		toggle = false
 	else:
 		me.texture_normal = preload("res://art/icon pack/png/002-like.png")
+		Global.remove_liked_listing(person_name)
 		toggle = true
+		if Global.current_page == "liked listing":
+			var c_main = get_node(Global.liked_main[person_name])
+			c_main.toggle = true
+			c_main = c_main.get_node("VBoxContainer/Panel/card_info/contact_box/like")
+			c_main.texture_normal = preload("res://art/icon pack/png/002-like.png")
 
 
 func _on_contact_pressed():
 	Global.current_card["name"] = person_name
 	Global.current_card["phone_no"] = number
-	Global.show_details()
+	if Global.current_page == "liked listing":
+		Global.liked_listing_details()
+		Global.current_page = "liked listing info"
+	else:
+		Global.show_details()

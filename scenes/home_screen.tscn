@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://scripts/ScrollContainer.gd" type="Script" id=1]
 [ext_resource path="res://art/icon pack/png/002-like.png" type="Texture" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://art/button art/whats new.png" type="Texture" id=13]
 [ext_resource path="res://art/button art/whats new filled.png" type="Texture" id=14]
 [ext_resource path="res://scripts/buttons.gd" type="Script" id=15]
+[ext_resource path="res://fonts/Roboto/Roboto-Medium.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://scripts/profile.gd" type="Script" id=17]
 
 [sub_resource type="DynamicFont" id=13]
 size = 70
@@ -62,6 +64,73 @@ VScrollBar/styles/grabber_pressed = SubResource( 3 )
 VScrollBar/styles/scroll = SubResource( 4 )
 VScrollBar/styles/scroll_focus = SubResource( 5 )
 
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 90
+font_data = ExtResource( 16 )
+
+[sub_resource type="StyleBoxLine" id=17]
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+thickness = 10
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="DynamicFont" id=19]
+size = 90
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 0.176471, 0.176471, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 1, 0.176471, 0.176471, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 0.176471, 0.176471, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="DynamicFont" id=21]
+size = 90
+font_data = ExtResource( 9 )
+
 [sub_resource type="Animation" id=8]
 resource_name = "details"
 length = 0.7
@@ -100,7 +169,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-color = Color( 0.921569, 0.921569, 0.921569, 1 )
+color = Color( 0.929412, 0.929412, 0.929412, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -136,6 +205,7 @@ margin_right = 452.0
 margin_bottom = 248.32
 custom_styles/normal = SubResource( 14 )
 custom_fonts/font = SubResource( 13 )
+custom_colors/cursor_color = Color( 0.152941, 0.152941, 0.152941, 1 )
 custom_colors/font_color = Color( 0.152941, 0.152941, 0.152941, 1 )
 align = 1
 placeholder_text = "Search..."
@@ -244,7 +314,7 @@ margin_right = 1080.0
 margin_bottom = 1666.0
 person_name = "John Doe"
 location = "Karnataka, India"
-start_up = "Teach coding for absolute beginners so yeah"
+start_up = "Teach coding for absolute beginners"
 number = "+91 3427348392"
 
 [node name="trending" type="ScrollContainer" parent="."]
@@ -296,20 +366,194 @@ margin_top = 1336.0
 margin_right = 1080.0
 margin_bottom = 1666.0
 
-[node name="header_bg" type="ColorRect" parent="."]
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+[node name="liked_list_panel" type="Panel" parent="."]
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -540.0
-margin_top = -128.0
-margin_right = 540.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-color = Color( 0.972549, 0.972549, 0.972549, 1 )
+margin_left = 1200.0
+margin_top = 152.0
+margin_right = 1200.0
+custom_styles/panel = SubResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="liked_list" type="ScrollContainer" parent="liked_list_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -267.992
+theme = SubResource( 6 )
+scroll_horizontal_enabled = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scroller" type="VBoxContainer" parent="liked_list_panel/liked_list"]
+margin_right = 1080.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="profile" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1200.0
+margin_top = 152.0
+margin_right = 1200.0
+custom_styles/panel = SubResource( 15 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="profile"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="profile_pic" type="TextureRect" parent="profile/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.921569 )
+margin_right = 880.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 880, 300 )
+size_flags_horizontal = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="username" type="Label" parent="profile/VBoxContainer"]
+margin_top = 304.0
+margin_right = 880.0
+margin_bottom = 454.0
+rect_min_size = Vector2( 880, 150 )
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "Hello User!"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="profile/VBoxContainer"]
+margin_top = 458.0
+margin_right = 880.0
+margin_bottom = 488.0
+rect_min_size = Vector2( 0, 30 )
+custom_styles/separator = SubResource( 17 )
+
+[node name="email" type="Button" parent="profile/VBoxContainer"]
+margin_top = 492.0
+margin_right = 880.0
+margin_bottom = 662.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/normal = SubResource( 18 )
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.929412, 0.929412, 1 )
+text = "Change E-mail"
+
+[node name="Control2" type="Control" parent="profile/VBoxContainer"]
+margin_top = 666.0
+margin_right = 880.0
+margin_bottom = 680.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password" type="Button" parent="profile/VBoxContainer"]
+margin_top = 684.0
+margin_right = 880.0
+margin_bottom = 854.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/normal = SubResource( 18 )
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.929412, 0.929412, 1 )
+text = "Change Password"
+
+[node name="Control3" type="Control" parent="profile/VBoxContainer"]
+margin_top = 858.0
+margin_right = 880.0
+margin_bottom = 873.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="messages" type="Button" parent="profile/VBoxContainer"]
+margin_top = 877.0
+margin_right = 880.0
+margin_bottom = 1047.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/normal = SubResource( 18 )
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.929412, 0.929412, 1 )
+text = "Messages"
+
+[node name="Control4" type="Control" parent="profile/VBoxContainer"]
+margin_top = 1051.0
+margin_right = 880.0
+margin_bottom = 1066.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="options" type="Button" parent="profile/VBoxContainer"]
+margin_top = 1070.0
+margin_right = 880.0
+margin_bottom = 1240.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 23 )
+custom_styles/normal = SubResource( 18 )
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.929412, 0.929412, 1 )
+text = "Options"
+
+[node name="Control5" type="Control" parent="profile/VBoxContainer"]
+margin_top = 1244.0
+margin_right = 880.0
+margin_bottom = 1314.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logout" type="Button" parent="profile/VBoxContainer"]
+margin_top = 1318.0
+margin_right = 880.0
+margin_bottom = 1488.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 20 )
+custom_styles/pressed = SubResource( 22 )
+custom_styles/normal = SubResource( 20 )
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color = Color( 1, 0.176471, 0.176471, 1 )
+custom_colors/font_color_hover = Color( 1, 0.176471, 0.176471, 1 )
+text = "LOGOUT"
 
 [node name="home_anim" type="AnimationPlayer" parent="."]
 anims/details = SubResource( 8 )
@@ -322,9 +566,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -1740.0
-margin_top = -960.0
+margin_top = -1160.0
 margin_right = -660.0
-margin_bottom = 821.0
+margin_bottom = 896.0
 custom_styles/panel = SubResource( 12 )
 __meta__ = {
 "_edit_group_": true,
@@ -336,6 +580,7 @@ anchor_top = 0.108
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 100.0
+margin_top = 200.0
 margin_right = -100.0
 margin_bottom = -100.0
 __meta__ = {
@@ -446,6 +691,21 @@ custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
 valign = 1
 uppercase = true
+
+[node name="header_bg" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -540.0
+margin_top = -128.0
+margin_right = 540.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.972549, 0.972549, 0.972549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="bottom_header" type="HBoxContainer" parent="."]
 anchor_top = 1.0

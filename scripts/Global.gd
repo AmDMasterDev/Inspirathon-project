@@ -14,6 +14,9 @@ var current_card = {
 	"phone_no" : ""
 }
 
+var liked = {}
+var liked_main = {}
+
 func _ready():
 	get_tree().set_quit_on_go_back(false)
 func _notification(what):
@@ -37,6 +40,11 @@ func _on_Back_pressed():
 			get_tree().quit()
 		"details":
 			hide_details()
+		"liked listing":
+			hide_liked_list()
+		"liked listing info":
+			liked_listing_details()
+			current_page = "liked listing"
 
 
 func provider_login():
@@ -53,18 +61,21 @@ func set_header_text(page : String):
 func show_details():
 	current_page = "details"
 	update_card()
-	home_screen.detail_tween(1)
+	home_screen.detail_tween(1, 1)
 	set_header_text("Details")
+
 
 func hide_details():
 	current_page = "home_screen"
-	home_screen.detail_tween(-1)
+	home_screen.detail_tween(-1, 1)
 #	home_screen.hide_detail_tween()
 	set_header_text("COLT")
+
 
 func update_card():
 	detail_name.text = current_card["name"]
 	phone.text = current_card["phone_no"]
+
 
 var explore_slide = "whats new"
 func explore(slide):
@@ -76,6 +87,49 @@ func explore(slide):
 	pass
 
 
+func show_liked_list():
+	current_page = "liked listing"
+	set_header_text("Liked Listings")
+	home_screen.detail_tween(-1, 2)
 
+func hide_liked_list():
+	current_page = "home_screen"
+	set_header_text("COLT")
+	home_screen.detail_tween(1, 2)
+
+var like_list_box : VBoxContainer
+var card = preload("res://scenes/cards/HBoxContainer.tscn")
+func add_liked_listing():
+	var c = card.instance()
+	var c_name = current_card["name"]
+	c.name = c_name
+	c.number = current_card["phone_no"]
+	c.person_name = liked[c_name]["name"]
+	c.location = liked[c_name]["location"]
+	c.start_up = liked[c_name]["start_up"]
+	c.pressed = true
+	like_list_box.add_child(c)
+	liked[c_name] = c.get_path()
+
+
+func remove_liked_listing(name):
+	var c_liked = get_node(liked[name])
+	c_liked.queue_free()
+	liked.erase(name)
+
+var showing_info = false
+func liked_listing_details():
+	if !showing_info:
+		update_card()
+		home_screen.info_slide(1)
+		set_header_text("Details")
+		showing_info = true
+	else:
+		home_screen.info_slide(-1)
+		set_header_text("Liked Listings")
+		showing_info = false
+
+func hide_info_slide():
+	home_screen.info_slide(-1)
 
 
