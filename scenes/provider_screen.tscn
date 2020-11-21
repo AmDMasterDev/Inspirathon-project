@@ -1,0 +1,847 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://scripts/ScrollContainer.gd" type="Script" id=1]
+[ext_resource path="res://art/icon pack/png/023-home.png" type="Texture" id=2]
+[ext_resource path="res://art/icon pack/png/010-user.png" type="Texture" id=3]
+[ext_resource path="res://scenes/buttons/provider_screen_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/buttons/home_screen_button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/cards/HBoxContainer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scripts/provider_screen.gd" type="Script" id=7]
+[ext_resource path="res://fonts/Corbel/corbelb.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://art/icon pack/png/041-whatsapp.png" type="Texture" id=10]
+[ext_resource path="res://scripts/add_listing.gd" type="Script" id=11]
+[ext_resource path="res://fonts/Roboto/Roboto-Medium.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://scripts/profile.gd" type="Script" id=17]
+
+[sub_resource type="DynamicFont" id=1]
+size = 70
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="Theme" id=8]
+HScrollBar/icons/decrement = null
+HScrollBar/icons/decrement_highlight = null
+HScrollBar/icons/increment = null
+HScrollBar/icons/increment_highlight = null
+HScrollBar/styles/grabber = null
+HScrollBar/styles/grabber_highlight = null
+HScrollBar/styles/grabber_pressed = null
+HScrollBar/styles/scroll = null
+HScrollBar/styles/scroll_focus = null
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = SubResource( 3 )
+VScrollBar/styles/grabber_highlight = SubResource( 4 )
+VScrollBar/styles/grabber_pressed = SubResource( 5 )
+VScrollBar/styles/scroll = SubResource( 6 )
+VScrollBar/styles/scroll_focus = SubResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.929412, 0.929412, 0.929412, 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 90
+font_data = ExtResource( 16 )
+
+[sub_resource type="StyleBoxLine" id=11]
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+thickness = 10
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="DynamicFont" id=13]
+size = 60
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 60
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="Theme" id=16]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = null
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = SubResource( 15 )
+VScrollBar/styles/scroll_focus = null
+
+[sub_resource type="StyleBoxFlat" id=17]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="DynamicFont" id=19]
+size = 90
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Animation" id=21]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0.0705882, 0.0705882, 0.0705882, 1 ), Color( 0.0705882, 0.0705882, 0.0705882, 0 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.92549, 0.92549, 0.92549, 1 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 100
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=24]
+size = 80
+outline_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 50
+outline_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 80
+font_data = ExtResource( 8 )
+
+[node name="provider_screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.929412, 0.929412, 0.929412, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="listings" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.079
+anchor_right = 0.5
+anchor_bottom = 0.079
+margin_left = -532.0
+margin_top = 3.31999
+margin_right = 532.0
+margin_bottom = 131.32
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+text = "Find your listings here"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="search" type="LineEdit" parent="."]
+anchor_left = 0.5
+anchor_top = 0.079
+anchor_right = 0.5
+anchor_bottom = 0.079
+margin_left = -452.0
+margin_top = 136.32
+margin_right = 452.0
+margin_bottom = 248.32
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/cursor_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+custom_colors/font_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+align = 1
+placeholder_text = "Search..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="your_listings" type="ScrollContainer" parent="."]
+anchor_top = 0.217
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1200.0
+margin_top = -0.639984
+margin_right = 1200.0
+margin_bottom = -128.0
+theme = SubResource( 8 )
+scroll_horizontal_enabled = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scroller" type="VBoxContainer" parent="your_listings"]
+margin_right = 1080.0
+margin_bottom = 330.0
+mouse_filter = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="card_template" parent="your_listings/scroller" instance=ExtResource( 6 )]
+margin_right = 1080.0
+person_name = "Amos Dsouza"
+location = "Goa, India"
+start_up = "Self Taught Game Developer"
+number = "+91 9403231069"
+
+[node name="add_listing" type="Panel" parent="."]
+anchor_top = 0.075
+anchor_right = 1.0
+anchor_bottom = 0.933
+margin_left = 1200.0
+margin_top = 8.0
+margin_right = 1200.0
+margin_bottom = 128.64
+custom_styles/panel = SubResource( 9 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="add_listing"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="username" type="Label" parent="add_listing/VBoxContainer"]
+margin_right = 880.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 880, 150 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "Add A Listing Here:"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="add_listing/VBoxContainer"]
+margin_top = 154.0
+margin_right = 880.0
+margin_bottom = 174.0
+rect_min_size = Vector2( 0, 20 )
+custom_styles/separator = SubResource( 11 )
+
+[node name="Control" type="Control" parent="add_listing/VBoxContainer"]
+margin_top = 178.0
+margin_right = 880.0
+margin_bottom = 198.0
+rect_min_size = Vector2( 0, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="LineEdit" parent="add_listing/VBoxContainer"]
+margin_top = 202.0
+margin_right = 880.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 880, 120 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/cursor_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+align = 1
+placeholder_text = "Name"
+caret_blink = true
+
+[node name="Control2" type="Control" parent="add_listing/VBoxContainer"]
+margin_top = 326.0
+margin_right = 880.0
+margin_bottom = 356.0
+rect_min_size = Vector2( 0, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="location" type="LineEdit" parent="add_listing/VBoxContainer"]
+margin_top = 360.0
+margin_right = 880.0
+margin_bottom = 480.0
+rect_min_size = Vector2( 880, 120 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/cursor_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+align = 1
+placeholder_text = "Location"
+caret_blink = true
+
+[node name="Control3" type="Control" parent="add_listing/VBoxContainer"]
+margin_top = 484.0
+margin_right = 880.0
+margin_bottom = 514.0
+rect_min_size = Vector2( 0, 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="start_up" type="LineEdit" parent="add_listing/VBoxContainer"]
+margin_top = 518.0
+margin_right = 880.0
+margin_bottom = 638.0
+rect_min_size = Vector2( 880, 120 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/cursor_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+align = 1
+placeholder_text = "Your Expertise"
+caret_blink = true
+
+[node name="Control4" type="Control" parent="add_listing/VBoxContainer"]
+margin_top = 642.0
+margin_right = 880.0
+margin_bottom = 657.0
+rect_min_size = Vector2( 0, 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="add_listing/VBoxContainer"]
+margin_top = 661.0
+margin_right = 880.0
+margin_bottom = 732.0
+custom_fonts/font = SubResource( 14 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "About You"
+align = 1
+valign = 1
+
+[node name="about you" type="TextEdit" parent="add_listing/VBoxContainer"]
+margin_top = 736.0
+margin_right = 880.0
+margin_bottom = 1082.0
+rect_min_size = Vector2( 880, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource( 16 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = " "
+wrap_enabled = true
+caret_blink = true
+
+[node name="Control5" type="Control" parent="add_listing/VBoxContainer"]
+margin_top = 1086.0
+margin_right = 880.0
+margin_bottom = 1116.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="contact" type="LineEdit" parent="add_listing/VBoxContainer"]
+margin_top = 1120.0
+margin_right = 880.0
+margin_bottom = 1240.0
+rect_min_size = Vector2( 880, 120 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/cursor_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+align = 1
+placeholder_text = "Contact"
+caret_blink = true
+
+[node name="Control6" type="Control" parent="add_listing/VBoxContainer"]
+margin_top = 1244.0
+margin_right = 880.0
+margin_bottom = 1314.0
+rect_min_size = Vector2( 0, 70 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="submit_list" type="Button" parent="add_listing/VBoxContainer"]
+margin_top = 1318.0
+margin_right = 880.0
+margin_bottom = 1488.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 17 )
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "Add List"
+
+[node name="profile" type="Panel" parent="."]
+anchor_top = 0.075
+anchor_right = 1.0
+anchor_bottom = 0.933
+margin_left = 1200.0
+margin_top = 8.0
+margin_right = 1200.0
+margin_bottom = 128.64
+custom_styles/panel = SubResource( 9 )
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="profile"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="profile_pic" type="TextureRect" parent="profile/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.921569 )
+margin_right = 880.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 880, 300 )
+size_flags_horizontal = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="username" type="Label" parent="profile/VBoxContainer"]
+margin_top = 304.0
+margin_right = 880.0
+margin_bottom = 454.0
+rect_min_size = Vector2( 880, 150 )
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "Hello Provider!"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="profile/VBoxContainer"]
+margin_top = 458.0
+margin_right = 880.0
+margin_bottom = 488.0
+rect_min_size = Vector2( 0, 30 )
+custom_styles/separator = SubResource( 11 )
+
+[node name="email" type="Button" parent="profile/VBoxContainer"]
+margin_top = 492.0
+margin_right = 880.0
+margin_bottom = 662.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.929412, 0.929412, 1 )
+text = "Change E-mail"
+
+[node name="Control2" type="Control" parent="profile/VBoxContainer"]
+margin_top = 666.0
+margin_right = 880.0
+margin_bottom = 680.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="password" type="Button" parent="profile/VBoxContainer"]
+margin_top = 684.0
+margin_right = 880.0
+margin_bottom = 854.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.929412, 0.929412, 1 )
+text = "Change Password"
+
+[node name="Control3" type="Control" parent="profile/VBoxContainer"]
+margin_top = 858.0
+margin_right = 880.0
+margin_bottom = 873.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="messages" type="Button" parent="profile/VBoxContainer"]
+margin_top = 877.0
+margin_right = 880.0
+margin_bottom = 1047.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.929412, 0.929412, 1 )
+text = "Messages"
+
+[node name="Control4" type="Control" parent="profile/VBoxContainer"]
+margin_top = 1051.0
+margin_right = 880.0
+margin_bottom = 1066.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="options" type="Button" parent="profile/VBoxContainer"]
+margin_top = 1070.0
+margin_right = 880.0
+margin_bottom = 1240.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 12 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_colors/font_color_pressed = Color( 0.929412, 0.929412, 0.929412, 1 )
+text = "Options"
+
+[node name="Control5" type="Control" parent="profile/VBoxContainer"]
+margin_top = 1244.0
+margin_right = 880.0
+margin_bottom = 1314.0
+rect_min_size = Vector2( 0, 70 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logout" type="Button" parent="profile/VBoxContainer"]
+margin_top = 1318.0
+margin_right = 880.0
+margin_bottom = 1488.0
+rect_min_size = Vector2( 880, 170 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 18 )
+custom_styles/normal = SubResource( 17 )
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 1, 0.176471, 0.176471, 1 )
+custom_colors/font_color_hover = Color( 1, 0.176471, 0.176471, 1 )
+text = "LOGOUT"
+
+[node name="home_anim" type="AnimationPlayer" parent="."]
+autoplay = "details"
+anims/details = SubResource( 21 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="details" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1740.0
+margin_top = -1160.0
+margin_right = -660.0
+margin_bottom = 896.0
+custom_styles/panel = SubResource( 22 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="details"]
+anchor_top = 0.108
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 200.0
+margin_right = -100.0
+margin_bottom = -100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spacer" type="Control" parent="details/VBoxContainer"]
+margin_right = 880.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="details/VBoxContainer"]
+margin_top = 54.0
+margin_right = 880.0
+margin_bottom = 304.0
+
+[node name="spacer" type="Control" parent="details/VBoxContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 100, 0 )
+
+[node name="TextureButton" type="TextureRect" parent="details/VBoxContainer/HBoxContainer"]
+modulate = Color( 1, 1, 1, 0.921569 )
+margin_left = 104.0
+margin_right = 404.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 300, 250 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="spacer2" type="Control" parent="details/VBoxContainer/HBoxContainer"]
+margin_left = 408.0
+margin_right = 428.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="name" type="Label" parent="details/VBoxContainer/HBoxContainer"]
+margin_left = 432.0
+margin_right = 880.0
+margin_bottom = 250.0
+rect_min_size = Vector2( 0, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+custom_constants/line_spacing = -35
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="spacer2" type="Control" parent="details/VBoxContainer"]
+margin_top = 308.0
+margin_right = 880.0
+margin_bottom = 358.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="about_me" type="Label" parent="details/VBoxContainer"]
+margin_top = 362.0
+margin_right = 880.0
+margin_bottom = 482.0
+rect_min_size = Vector2( 0, 120 )
+custom_fonts/font = SubResource( 24 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "About Me"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="about_me_info" type="Label" parent="details/VBoxContainer"]
+margin_top = 486.0
+margin_right = 880.0
+margin_bottom = 1236.0
+rect_min_size = Vector2( 0, 750 )
+custom_fonts/font = SubResource( 25 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a lacus risus. Praesent ut dignissim justo, quis posuere velit. Pellentesque iaculis sit amet urna et lacinia. Suspendisse nec commodo quam. Vivamus cursus urna vel leo consequat imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam vel nibh quis sem convallis pulvinar."
+autowrap = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="details/VBoxContainer"]
+margin_top = 1240.0
+margin_right = 880.0
+margin_bottom = 1390.0
+
+[node name="TextureRect" type="TextureRect" parent="details/VBoxContainer/HBoxContainer2"]
+margin_right = 170.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 170, 150 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="spacer" type="Control" parent="details/VBoxContainer/HBoxContainer2"]
+margin_left = 174.0
+margin_right = 224.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 50, 0 )
+
+[node name="phone_number" type="Label" parent="details/VBoxContainer/HBoxContainer2"]
+margin_left = 228.0
+margin_top = 15.0
+margin_right = 228.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 0, 120 )
+custom_fonts/font = SubResource( 24 )
+custom_colors/font_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+valign = 1
+uppercase = true
+
+[node name="header_bg" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -540.0
+margin_top = -128.0
+margin_right = 540.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.972549, 0.972549, 0.972549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bottom_header" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 88.0
+margin_top = -105.0
+margin_right = -88.0
+margin_bottom = -24.9999
+rect_min_size = Vector2( 0, 80 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="home" parent="bottom_header" instance=ExtResource( 4 )]
+texture_normal = ExtResource( 2 )
+
+[node name="spacer" type="Control" parent="bottom_header"]
+margin_left = 84.0
+margin_right = 408.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+
+[node name="add" parent="bottom_header" instance=ExtResource( 4 )]
+margin_left = 412.0
+margin_right = 492.0
+
+[node name="spacer2" type="Control" parent="bottom_header"]
+margin_left = 496.0
+margin_right = 820.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+
+[node name="profile" parent="bottom_header" instance=ExtResource( 4 )]
+margin_left = 824.0
+margin_right = 904.0
+texture_normal = ExtResource( 3 )
+
+[node name="profile3" parent="bottom_header" instance=ExtResource( 5 )]
+visible = false
+margin_left = 824.0
+margin_right = 904.0
+texture_normal = ExtResource( 3 )
+
+[node name="header" type="ColorRect" parent="."]
+anchor_right = 1.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 1080, 150 )
+mouse_filter = 2
+color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="header_text" type="Label" parent="header"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 60.0
+margin_top = 20.0
+margin_bottom = 2.0
+custom_fonts/font = SubResource( 26 )
+text = "COLT for Providers"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="overlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="add_listing/VBoxContainer/submit_list" to="add_listing" method="_on_submit_list_pressed"]
+[connection signal="pressed" from="profile/VBoxContainer/logout" to="profile" method="_on_logout_pressed"]

@@ -83,7 +83,6 @@ func like_list_tween(dir):
 	tween.start()
 
 func profile(dir):
-	Global
 	var tween = get_node("Tween")
 	position = $profile.rect_position
 	tween.interpolate_property($profile, "rect_position",

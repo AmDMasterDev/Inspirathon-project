@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/icon pack/png/011-add.png" type="Texture" id=1]
+[ext_resource path="res://scenes/buttons/provider_screen.gd" type="Script" id=2]
+
+[node name="button" type="TextureButton"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+texture_normal = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+script = ExtResource( 2 )
+[connection signal="pressed" from="." to="." method="_on_button_pressed"]

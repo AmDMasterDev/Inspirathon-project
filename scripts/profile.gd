@@ -7,3 +7,5 @@ func _on_logout_pressed():
 	anim.play_backwards("details")
 	yield(anim, "animation_finished")
 	get_tree().change_scene("res://scenes/splash_screen.tscn")
+
+

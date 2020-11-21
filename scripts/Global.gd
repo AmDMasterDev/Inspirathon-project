@@ -7,6 +7,7 @@ export var user = ""
 var home_screen : Control
 var header
 var detail_name
+var about_me
 var phone
 
 
@@ -15,6 +16,8 @@ var current_card = {
 	"phone_no" : ""
 }
 
+var listing = {}
+var list_arr = []
 var liked = {}
 var liked_main = {}
 
@@ -79,6 +82,9 @@ func update_card():
 	detail_name.text = current_card["name"]
 	phone.text = current_card["phone_no"]
 
+func custom_bio(person_name):
+	about_me.text = listing[person_name]["about_you"]
+	print(listing[person_name]["about_you"])
 
 var explore_slide = "whats new"
 func explore(slide):
@@ -141,3 +147,23 @@ func show_profile():
 
 func hide_profile():
 	home_screen.profile(1)
+
+
+func generate_listing(node, i):
+	var c = card.instance()
+	var c_name = list_arr[i]
+	var parent = node
+	c.name = c_name
+	c.number = listing[c_name]["phone_no"]
+	c.person_name = listing[c_name]["name"]
+	c.location = listing[c_name]["location"]
+	c.start_up = listing[c_name]["start_up"]
+	c.custom_bio = true
+	parent.add_child(c)
+
+func add_list_tween(dir):
+	if user == "provider":
+		home_screen.add_list(dir)
+
+
+

@@ -10,6 +10,7 @@ export (NodePath) var card_location
 export (NodePath) var card_start_up
 
 var pressed = false
+var custom_bio = false
 
 func _ready():
 	card_name = get_node(card_name)
@@ -56,6 +57,11 @@ func _on_like_pressed():
 func _on_contact_pressed():
 	Global.current_card["name"] = person_name
 	Global.current_card["phone_no"] = number
+	if custom_bio:
+		Global.custom_bio(person_name)
+	else:
+		Global.about_me = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a lacus risus. Praesent ut dignissim justo, quis posuere velit. Pellentesque iaculis sit amet urna et lacinia. Suspendisse nec commodo quam. Vivamus cursus urna vel leo consequat imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Aliquam vel nibh quis sem convallis pulvinar."
+	
 	if Global.current_page == "liked listing":
 		Global.liked_listing_details()
 		Global.current_page = "liked listing info"
