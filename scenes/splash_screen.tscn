@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://fonts/Roboto/Roboto-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://art/backgrounds/dark_bg.png" type="Texture" id=2]
@@ -40,7 +40,7 @@ font_data = ExtResource( 1 )
 size = 40
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=6]
 
 [sub_resource type="DynamicFont" id=7]
 size = 250
@@ -50,9 +50,25 @@ font_data = ExtResource( 18 )
 size = 40
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=9]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0.0705882, 0.0705882, 0.0705882, 1 ), Color( 0.0705882, 0.0705882, 0.0705882, 0 ) ]
+}
+
 [sub_resource type="Animation" id=10]
 resource_name = "start_anim"
-length = 0.7
+length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/first_login:rect_position")
 tracks/0/interp = 1
@@ -60,14 +76,13 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
+"times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 0.7, 2.27357 ),
 "update": 0,
 "values": [ Vector2( 165, 700 ), Vector2( 165, 2500 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "user_anim"
+[sub_resource type="Animation" id=11]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Control/first_login:rect_position")
@@ -161,9 +176,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -375.0
-margin_top = -260.0
+margin_top = 1540.0
 margin_right = 375.0
-margin_bottom = 620.001
+margin_bottom = 2420.0
 custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -307,18 +322,18 @@ __meta__ = {
 }
 
 [node name="email" parent="UI/Control/login/initials_container" instance=ExtResource( 11 )]
-margin_right = 552.0
+margin_right = 553.0
 size_flags_horizontal = 1
 
 [node name="spacer" type="Control" parent="UI/Control/login/initials_container"]
 margin_top = 84.0
-margin_right = 552.0
+margin_right = 553.0
 margin_bottom = 110.0
 size_flags_vertical = 3
 
 [node name="password" parent="UI/Control/login/initials_container" instance=ExtResource( 11 )]
 margin_top = 114.0
-margin_right = 552.0
+margin_right = 553.0
 margin_bottom = 194.0
 size_flags_horizontal = 1
 secret = true
@@ -326,7 +341,7 @@ placeholder_text = "Password"
 
 [node name="spacer2" type="Control" parent="UI/Control/login/initials_container"]
 margin_top = 198.0
-margin_right = 552.0
+margin_right = 553.0
 margin_bottom = 225.0
 size_flags_vertical = 3
 
@@ -373,7 +388,7 @@ margin_left = -345.0
 margin_top = -125.5
 margin_right = 345.0
 margin_bottom = 179.5
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -406,7 +421,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="UI/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="login_anim" type="AnimationPlayer" parent="UI"]
+autoplay = "fade"
+anims/fade = SubResource( 9 )
 anims/provider_anim = ExtResource( 17 )
 anims/start_anim = SubResource( 10 )
-anims/user_anim = SubResource( 6 )
+anims/user_anim = SubResource( 11 )

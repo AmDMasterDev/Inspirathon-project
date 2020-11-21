@@ -3,6 +3,7 @@ extends Node2D
 var animation : AnimationPlayer
 
 export var current_page = "entry_point"
+export var user = ""
 var home_screen : Control
 var header
 var detail_name
@@ -49,10 +50,12 @@ func _on_Back_pressed():
 
 func provider_login():
 	current_page = "provider_login"
+	user = "provider"
 	animation.play('provider_anim')
 
 func user_login():
 	current_page = "user_login"
+	user = "user"
 	animation.play('user_anim')
 
 func set_header_text(page : String):

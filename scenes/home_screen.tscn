@@ -133,7 +133,19 @@ font_data = ExtResource( 9 )
 
 [sub_resource type="Animation" id=8]
 resource_name = "details"
-length = 0.7
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Color( 0.0705882, 0.0705882, 0.0705882, 1 ), Color( 0.0705882, 0.0705882, 0.0705882, 0 ) ]
+}
 
 [sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 0.92549, 0.92549, 0.92549, 1 )
@@ -350,21 +362,37 @@ number = "(555) 555-1234"
 margin_top = 334.0
 margin_right = 1080.0
 margin_bottom = 664.0
+person_name = "Ed Bakere"
+location = "USA"
+start_up = "Online coaching"
+number = "(253) 257-2344"
 
 [node name="HBoxContainer3" parent="trending/scroller" instance=ExtResource( 6 )]
 margin_top = 668.0
 margin_right = 1080.0
 margin_bottom = 998.0
+person_name = "Harold Jankins"
+location = "London, UK"
+start_up = "Online teacher for maths"
+number = "(020) 9283 4732"
 
 [node name="HBoxContainer4" parent="trending/scroller" instance=ExtResource( 6 )]
 margin_top = 1002.0
 margin_right = 1080.0
 margin_bottom = 1332.0
+person_name = "Luna Evans"
+location = "Kolkata, India"
+start_up = "Online Violinist Teacher"
+number = "+91 9834755234 "
 
 [node name="HBoxContainer5" parent="trending/scroller" instance=ExtResource( 6 )]
 margin_top = 1336.0
 margin_right = 1080.0
 margin_bottom = 1666.0
+person_name = "Joey Martinez"
+location = "Goa, India"
+start_up = "Graphic Designer"
+number = "+91 9473852114"
 
 [node name="liked_list_panel" type="Panel" parent="."]
 anchor_right = 1.0
@@ -558,6 +586,7 @@ custom_colors/font_color_hover = Color( 1, 0.176471, 0.176471, 1 )
 text = "LOGOUT"
 
 [node name="home_anim" type="AnimationPlayer" parent="."]
+autoplay = "details"
 anims/details = SubResource( 8 )
 
 [node name="Tween" type="Tween" parent="."]
@@ -776,6 +805,15 @@ margin_bottom = 2.0
 custom_fonts/font = SubResource( 7 )
 text = "COLT"
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="overlay" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
