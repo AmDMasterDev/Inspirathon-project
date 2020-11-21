@@ -1,5 +1,9 @@
 extends Control
 
+func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().reload_current_scene()
+
 func _ready():
 	Global.current_page = "home_screen"
 	Global.header = get_node("header/header_text")
@@ -78,4 +82,11 @@ func like_list_tween(dir):
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 
-
+func profile(dir):
+	Global
+	var tween = get_node("Tween")
+	position = $profile.rect_position
+	tween.interpolate_property($profile, "rect_position",
+			position, position + (offscreen * dir), 0.2,
+			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()

@@ -2,7 +2,7 @@ extends Node2D
 
 var animation : AnimationPlayer
 
-var current_page = "entry_point"
+export var current_page = "entry_point"
 var home_screen : Control
 var header
 var detail_name
@@ -132,4 +132,9 @@ func liked_listing_details():
 func hide_info_slide():
 	home_screen.info_slide(-1)
 
+func show_profile():
+	current_page = "profile"
+	home_screen.profile(-1)
 
+func hide_profile():
+	home_screen.profile(1)
